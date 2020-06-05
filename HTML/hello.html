@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 주석을이렇게 함-->
+    <!-- ctrl+/로도 가능 -->
+
+    <!-- 2. 레이아웃 시멘틱 태그 -->
+    <head id='header'>header for test</head>
+    <nav>nav</nav>
+    <aside>aside</aside>
+    <section>section</section>
+    <article>article</article>
+    <footer>footer</footer>
+    <!-- 3. Non 시멘틱 태그ㅡ -->
+    <div>div</div>
+    <!-- 4. 제목 -->
+    <h1>Header 1</h1>
+    <h2>Header 2</h2>
+    <h6>Header 6</h6>
+    <!--  5. q본문ㄴ -->
+    <p>본문입니다<div class="br">
+        <hr>
+    </div></p>
+    <!-- 6. 글자 꾸미기 -->
+    <p>
+        <!-- 6.1굵게 -->
+        <b>굵게</b>
+        <!-- 6.2.굴게 -->
+        <strong>굴게-시멘틱</strong>
+        <!-- 기울임 -->
+        <i>italic 체</i>
+        <em>기울임-시멘틱 </em>
+        <!-- 취소선 -->
+        <del>취소선 </del>
+
+    </p>
+    <!-- 7. 목록 -->
+    <!-- 7.1 순서 있는 목록 -->
+    <ol>
+        <li> 첫번째 </li>
+        <li> 두번째 </li>
+        <li> 세번째 </li>
+    </ol>
+    <!-- 순서 없는 목록 -->
+    <ul>
+        <li>사과</li>
+        <li>배</li>
+        <li>겨울</li>
+    </ul>
+
+    <!-- 8. 링크(link) -->
+    <!-- href=hyper link reference -->
+    <!-- 절대 경로(주소) -->
+    <a href="https://google.com" target="_self"> Go to google~</a>
+    <!-- 상대 경로 -->
+    <a href="bye.html" target="_blank">Go to Bye</a>
+    <!-- (#을 통해) id를 지정한 태그 위치 -->
+    <a href="#header">Go to header</a>
+    <!-- email -->
+    <a href="mailto:ilikeorange@nate.com">test for email</a>
+
+    <!-- 9. 미디어 태그 -->
+    <!-- 9.1 이미지 -->
+    <!-- src: 상대/절대 경로 -->
+    <!-- alt: script reader가 읽어서 알려줄 수 있음or 오타로인한 엑박에서 설명으로 alt -->
+    <img src="images/seojisoo.jpg" width="400px" height="300px" alt="서지수">
+    <!-- 9.2 비디오 -->
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/BHeu4LKt-ds" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>"></video>
+    <!-- 10. form(양식) -->
+    <form action="(주소)">
+        <!-- text -->
+        <input type="text">
+        <!-- password -->
+        <input type="password">
+        <!-- number -->
+        <input type="number">
+        <!-- date -->
+        <input type="date">
+        <!-- radio -->
+        <input type="radio" name="hello">
+        <input type="radio" name="hello">
+        <input type="radio" name="hello">
+        <!-- submit -->
+        <input type="submit">
+
+    </form>
+
+</body>
+</html>
