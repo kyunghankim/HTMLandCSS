@@ -17,10 +17,9 @@ for i in fifty:
 
 #확인용 url=f'http://www.kobis.or.kr/kobisopenapi/webservice/rest/boxoffice/searchDailyBoxOfficeList.json?key={keytemp}&targetDt={datetemp}&weekGb=0'
 
-df_temp = pd.read_csv("boxoffice.csv")
+df_temp = pd.read_csv("boxoffice2.csv",encoding='euc-kr')
 code_name = df_temp['2']
 
-# pprint(movie_data.get('movieInfo').get('actors'))
 movie_info = [] #<- 영화 정보들을 넣을 빈 list    
 for codename in code_name:
     url=f'http://www.kobis.or.kr/kobisopenapi/webservice/rest/movie/searchMovieInfo.json?key={keytemp}&movieCd={codename}'
@@ -35,9 +34,5 @@ for codename in code_name:
     temp_allinfo['genres'],temp_allinfo['directors']])
 info_df = pd.DataFrame(movie_info)
 print(info_df[:7])
-info_df.to_csv("movie.csv",mode = 'w',encoding = 'utf-8',index=False)
+info_df.to_csv("movie2.csv",mode = 'w',encoding = 'euc-kr',index=False)
 
-# print(movie_info[:3])
-# info_df = pd.DataFrame(movie_info)
-# #boxoffice = movie_df.columns['rank','old&new','movieCode','movieName','salesAmount','audience']
-# info_df.to_csv("movie.csv",mode = 'w',encoding = 'utf-8',index=False)
