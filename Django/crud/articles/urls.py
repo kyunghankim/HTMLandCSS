@@ -18,14 +18,24 @@ from django.contrib import admin
 from django.urls import path, include
 from . import views
 
+app_name = 'articles'
+
 
 urlpatterns = [
-    path('index/', views.index), #게시글 목록
+    # 1. GET /articles/
+    path('', views.index, name='index'), #게시글 목록
     # send / receive
-    path('new/',views.new), #<- 게시글 작성 양식
-    path('create/',views.create), #<-게시글
-    path('detail/<int:pk>/', views.detail),
-    path('delete/<int:pk>/',views.delete),
-    path('edit/<int:pk>/' , views.edit), #게시글 수정양식(GET)
-    path('update/<int:pk>/', views.update) #게시글 수정!(POST)
+    # 2. GET / articles/new/
+    path('new/', views.new, name='new'), #<- 게시글 작성 양식
+    # 3. POST / articles/new/
+    # path('create/', views.create, name='create'), #<-게시글
+    # 4. GET /articles/1/
+    path('<int:pk>/', views.detail, name='detail'),
+    # 5. POST(<-DELETE) /articles/1/ :update역할
+    path('<int:pk>/delete/', views.delete, name='delete'),
+    # 6. GET /articles/edit/1/
+    path('<int:pk>/edit/' , views.edit, name='edit'), #게시글 수정양식(GET)
+    # #7. PUT,POST /articles/update/1/
+    # path('update/<int:pk>/', views.update, name='update') #게시글 수정!(POST)
+    # 
 ]

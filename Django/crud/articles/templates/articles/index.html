@@ -8,12 +8,12 @@
     <ul>
         <li>{{ article.id }}</li>
         
-        <a href="/articles/detail/{{ article.pk }}/"><li>{{ article.title }}</li></a>
+        <a href="{% url 'articles:detail' article.pk %}">{{ article.title }}</a>
         <li>{{ article.content }}</li>
         <hr>
     </ul>
 {% endfor %}
 <!-- 게시판에서 세 글 쓰기 링크 만들기 -->
-<a href="/articles/new/">New Article</a>
+<a href="{% url 'articles:new' %}">New Article</a>
 
 {% endblock %}
