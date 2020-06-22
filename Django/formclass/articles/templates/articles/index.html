@@ -1,5 +1,7 @@
 {% extends 'base.html' %}
 
+{% load static %}
+
 {% block body %}
 
 <h1>Article Index</h1>
@@ -12,5 +14,7 @@
         </li>
     {% endfor %}
 </ul>
+
+<img src="{% static '예인.jpg' %}" alt="testIMG">
 
 {% endblock %}

@@ -12,13 +12,13 @@ def index(request):
     return render(request, 'articles/index.html', context)
 
 def new(request):
-
     if request.method == "POST":
         # Database에 저장
         #1. 요청에 실려온 data 꺼내오기
         # title = request.POST.get('title')
         # content = request.POST.get('content')
-        form = ArticleForm(request.POST)
+        # image = request.FILES.get('image')
+        form = ArticleForm(request.POST, request.FILES)
         #2-1. data 유효성 검사
         if form.is_valid():
             # (ModelForm) 2-2. Database에 저장
@@ -31,10 +31,12 @@ def new(request):
             # article.save()
             #3. 저장된 data를 확인할 수 있는 곳으로 안내?
             return redirect('articles:detail', article.pk)
-
-    else: # GET
+    # GET
+    else: 
         #작성 양식 보여주기
         form = ArticleForm()
+
+
     context = {
         'form': form,
     }
@@ -150,9 +152,5 @@ def comments_edit(request, article_pk, pk): #<- GET,POST
     }
     return render(request, 'articles/comments_edit.html', context)
 
-def new(request):
-    context = {
-        
-    }
-    return render(request, 'articles/new.html',context)
+
 

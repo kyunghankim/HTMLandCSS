@@ -1,9 +1,23 @@
 from django.db import models
+from imagekit.models import ProcessedImageField
+from imagekit.processors import Thumbnail
+
 
 # Create your models here.
 class Article(models.Model):
     title = models.CharField(max_length = 10)
     content = models.TextField()
+    #image = models.ImageField(blank=True)
+    image = ProcessedImageField(
+                blank=True,
+                processors=[#<- 어떤 가공할지
+                    Thumbnail(300,300),    
+                ],
+                format='JPEG', # 이미지 포멧(jpg or png)
+                options={ #이미지 포멧 관련 옵션
+                    'quality': 90,
+                }
+    )       
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
@@ -28,5 +42,28 @@ class Comment(models.Model):
     # article = Article.objects.get(pk=1)
     # comment = Comment()
     # comment.content = '첫 댓글 확인용'
+    # (comment.article_id=1) 이렇게도 가능
     # comment.save()
     #
+    # 2. Read
+    # 2-1. 부모로부터 자식들 가져오기
+    # aritcle=Article.objects.get(pk=1)
+    # commtens = article.comment_set.all()
+
+    # 2-2 자식테이블에서 조건으로가져오기
+    # article = Article.objects.get(pk=1)
+    # comment=Comment.objects.filter(article=article)
+    # (  .filter(article_id=1) )
+    # article = comment.article
+    # article.comment
+
+# Django Fixtures
+# 1. dumpdata
+# python manage.py dumpdata articles.article --indent=2 > article.json
+
+# 2. loaddata
+# python manage.py loaddata article.json
+
+# 3. csv to fixtures
+# https://hpy.hk/c2f
+
