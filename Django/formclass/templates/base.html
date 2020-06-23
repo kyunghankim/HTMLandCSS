@@ -9,6 +9,7 @@
     <nav>
         {% if user.is_authenticated %}
         <span>{{ user.username }}</span>
+        <a href="{% url 'accounts:edit' %}">회원정보수정</a>
         <form action="{% url 'accounts:logout' %}" method="POST">
             {% csrf_token %}
             <input type="submit" value="Logout">
